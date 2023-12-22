@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h> // Biblioteca p/ valor booleano.
 
-// InserÁ„o de elementos pelo topo e pelo inÌcio (head & tail).
+// Inser√ß√£o de elementos pelo topo e pelo in√≠cio (head & tail).
 
 typedef struct node{
 	int valor;
@@ -13,13 +13,13 @@ void exibirLista(Node *topo);
 Node *inserirTopo(Node *topo, int novoValor);
 Node *inserirInicio(Node *topo, int novoValor);
 int tamanhoLista(Node *topo);
-int tamanhoListaRec(Node *topo); // FunÁ„o recursiva do Tamanho da lista.
+int tamanhoListaRec(Node *topo); // Fun√ß√£o recursiva do Tamanho da lista.
 bool verifica_Lista(Node *topo, int busca);
 int contagem_Lista(Node *topo, int busca);	
 void trocar_Lista(Node *topo, int busca, int troca); // busca: antes | troca: depois
 
 int main(){
-	Node *lista1_topo = NULL; // DeclaraÁ„o de lista vazia.
+	Node *lista1_topo = NULL; // Declara√ß√£o de lista vazia.
 	int busca;
 	
 	lista1_topo = inserirTopo(lista1_topo, 5);
@@ -30,7 +30,7 @@ int main(){
 	lista1_topo = inserirTopo(lista1_topo, 1);
 	
 	/*
-	printf("Digite um n˙mero de 1 a 5 para obter as ocorrencias na lista: ");
+	printf("Digite um n√∫mero de 1 a 5 para obter as ocorrencias na lista: ");
 	scanf("%d", &busca);
 	printf("Quantidade de %d's na lista encadeada: %d.\n\n", busca, contagem_Lista(lista1_topo, busca));
 	exibirLista(lista1_topo);
@@ -51,56 +51,56 @@ int main(){
 }
 
 /////////////////////////////////////////
-////  NOVAS FUN«’ES E RECURSIVIDADE  ////
+////  NOVAS FUN√á√ïES E RECURSIVIDADE  ////
 
-int tamanhoLista(Node *topo){ // Vers„o ITERATIVA - Tamanho da lista.
+int tamanhoLista(Node *topo){ // Vers√£o ITERATIVA - Tamanho da lista.
 	Node *atual = topo;
 	int i = 0;
 	
-	while(atual){ // Enquanto nÛ existe.
+	while(atual){ // Enquanto n√≥ existe.
 		++i;
 		atual = atual->prox;
 	}
 	return i;
 }
 
-// Vers„o RECURSIVA - Tamanho da lista.
-int tamanhoListaRec(Node *topo){ // FunÁ„o recursiva do Tamanho da lista.
+// Vers√£o RECURSIVA - Tamanho da lista.
+int tamanhoListaRec(Node *topo){ // Fun√ß√£o recursiva do Tamanho da lista.
 	if(topo == NULL) return 0; // Se lista vazia, retorna tamanho 0.
-	else return 1 + tamanhoListaRec(topo->prox); // Conta elementos da lista recursivamente atÈ retornar caso base (zero).
+	else return 1 + tamanhoListaRec(topo->prox); // Conta elementos da lista recursivamente at√© retornar caso base (zero).
 }
 
 // Recursiva.
-bool verifica_Lista(Node *topo, int busca){ // Busca um valor na lista e retorna se est· contido ou n„o (true/false).
-	if(topo == NULL) return false; // 1∫ caso: Lista vazia OU chegou atÈ ˙ltimo elemento (caso base).
-	else if(topo->valor == busca) return true; // 2∫ caso: O elemento buscado est· na iteraÁ„o atual.
-	else{ // Percorre a lista recursivamente atÈ atingir caso base.
+bool verifica_Lista(Node *topo, int busca){ // Busca um valor na lista e retorna se est√° contido ou n√£o (true/false).
+	if(topo == NULL) return false; // 1¬∫ caso: Lista vazia OU chegou at√© √∫ltimo elemento (caso base).
+	else if(topo->valor == busca) return true; // 2¬∫ caso: O elemento buscado est√° na itera√ß√£o atual.
+	else{ // Percorre a lista recursivamente at√© atingir caso base.
 		return verifica_Lista(topo->prox, busca);
 	}
 }
-// Existem dois casos bases na funÁ„o acima, 1∫: Lista estar vazia/chegar no ˙ltimo elemento (n„o encontrou) | 2∫: encontrou valor buscado.
+// Existem dois casos bases na fun√ß√£o acima, 1¬∫: Lista estar vazia/chegar no √∫ltimo elemento (n√£o encontrou) | 2¬∫: encontrou valor buscado.
 
 // Recursiva.
-int contagem_Lista(Node *topo, int busca){ // Parecida com a funÁ„o acima, porÈm esta CONTA quantas vezes o valor buscado aparece na lista.
-	if(topo == NULL) return 0; // 1∫ caso: Lista vazia ou chegou no ˙ltimo elemento.
-	else if(topo->valor == busca) // 2∫ caso: IteraÁ„o atual encontrou o valor.
-		return 1 + contagem_Lista(topo->prox, busca); // 3∫ caso Elemento buscado encontrado, incrementa 1 e segue procurando possÌveis prÛximas apariÁıes do valor.
-	else // 4∫ caso N„o encontrou na iteraÁ„o atual, segue procurando possÌveis prÛximas apariÁıes e N√O incrementa na contagem.
+int contagem_Lista(Node *topo, int busca){ // Parecida com a fun√ß√£o acima, por√©m esta CONTA quantas vezes o valor buscado aparece na lista.
+	if(topo == NULL) return 0; // 1¬∫ caso: Lista vazia ou chegou no √∫ltimo elemento.
+	else if(topo->valor == busca) // 2¬∫ caso: Itera√ß√£o atual encontrou o valor.
+		return 1 + contagem_Lista(topo->prox, busca); // Elemento buscado encontrado, incrementa 1 e segue procurando poss√≠veis pr√≥ximas apari√ß√µes do valor.
+	else // 3¬∫ caso: N√£o encontrou na itera√ß√£o atual, segue procurando poss√≠veis pr√≥ximas apari√ß√µes e N√ÉO incrementa na contagem.
 		return contagem_Lista(topo->prox, busca);
 }
-// na funÁ„o acima, o caso base agora È somente o primeiro pois somente ele TERMINA a continuaÁ„o da recurs„o.
+// na fun√ß√£o acima, o caso base agora √© somente o primeiro pois somente ele TERMINA a continua√ß√£o da recurs√£o.
 
 // Recursiva.
-void trocar_Lista(Node *topo, int busca, int troca){ // Recebe alÈm da lista, valor a procurar e valor a substituir todas as apariÁıes da busca pelo novo elemento "troca".
+void trocar_Lista(Node *topo, int busca, int troca){ // Recebe al√©m da lista, valor a procurar e valor a substituir todas as apari√ß√µes da busca pelo novo elemento "troca".
 	if(topo){ // topo != NULL 
-		if(topo->valor == busca) topo->valor = troca; // Se valor da iteraÁ„o atual È o valor buscado, troca ele pelo novo.
-		trocar_Lista(topo->prox, busca, troca); // DE QUALQUER FORMA, procede atÈ caso base (topo == NULL) preenchendo as possÌveis apariÁıes da busca pelo novo.
+		if(topo->valor == busca) topo->valor = troca; // Se valor da itera√ß√£o atual √© o valor buscado, troca ele pelo novo.
+		trocar_Lista(topo->prox, busca, troca); // DE QUALQUER FORMA, procede at√© caso base (topo == NULL) preenchendo as poss√≠veis apari√ß√µes da busca pelo novo.
 	}
-	// Quando a recurs„o da lista chegar atÈ onde topo == NULL, return ser· chamado finalizando a recurs„o.
-	return; // N„o retorna nada.
+	// Quando a recurs√£o da lista chegar at√© onde topo == NULL, return ser√° chamado finalizando a recurs√£o.
+	return; // N√£o retorna nada.
 }
 
-// FunÁıes j· antes estudadas.
+// Fun√ß√µes j√° antes estudadas.
 
 Node *inserirTopo(Node *topo, int novoValor){
 	Node *novoNode = calloc(1, sizeof(Node));
