@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <stdbool.h> // Biblioteca p/ valor booleano.
 
-// Inserção de elementos pelo topo e pelo início (head & tail).
+// Aula 4:
+// Tamanho, busca, contagem, replace.
+// Implementações com recursividade.
 
 typedef struct node{
 	int valor;
