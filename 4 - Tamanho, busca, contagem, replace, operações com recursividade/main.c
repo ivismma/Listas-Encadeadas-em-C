@@ -3,7 +3,7 @@
 #include <stdbool.h> // Biblioteca p/ valor booleano.
 
 // Aula 4:
-// Tamanho, busca, contagem, replace.
+// Tamanho, busca, contagem, replace
 // Implementações com recursividade.
 
 typedef struct node{
