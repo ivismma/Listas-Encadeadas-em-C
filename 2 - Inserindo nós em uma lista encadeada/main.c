@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-// Inserção de elementos pelo topo e pelo início (head & tail).
+// Aula 2:
+// InserÃ§Ã£o de nÃ³s (elementos) pelo topo e pelo inÃ­cio (head & tail) da lista encadeada.
 
 typedef struct node{
 	int valor;
@@ -14,7 +14,7 @@ Node *inserirTopo(Node *topo, int novoValor);
 Node *inserirInicio(Node *topo, int novoValor);
 
 int main(){
-	Node *lista1_topo = NULL; // Declaração de lista vazia.
+	Node *lista1_topo = NULL; // DeclaraÃ§Ã£o de lista vazia.
 	
 	lista1_topo = inserirTopo(lista1_topo, 5);
 	lista1_topo = inserirTopo(lista1_topo, 8);
@@ -26,9 +26,9 @@ int main(){
 }
 
 Node *inserirTopo(Node *topo, int novoValor){
-	Node *novoNode = calloc(1, sizeof(Node)); // Novo nó.
+	Node *novoNode = calloc(1, sizeof(Node)); // Novo nÃ³.
 	novoNode->valor = novoValor;
-	if(topo == NULL) return novoNode; // Se lista vazia, o novo nó é o primeiro elemento.
+	if(topo == NULL) return novoNode; // Se lista vazia, o novo nÃ³ Ã© o primeiro elemento.
 	else{
 		novoNode->prox = topo;
 		return novoNode;
@@ -37,15 +37,15 @@ Node *inserirTopo(Node *topo, int novoValor){
 }
 
 Node *inserirInicio(Node *topo, int novoValor){
-	Node *novoNode = calloc(1, sizeof(Node)); // Novo nó/elemento
+	Node *novoNode = calloc(1, sizeof(Node)); // Novo nÃ³/elemento
 	novoNode->valor = novoValor;
-	if (topo == NULL) return novoNode; // Se lista vazia, o novo nó é o primeiro elemento.
+	if (topo == NULL) return novoNode; // Se lista vazia, o novo nÃ³ Ã© o primeiro elemento.
 	else{
 		Node *atual = topo;
-		while(atual->prox != NULL) // Enquanto não chegou ao fim..
-			atual = atual->prox; // Procede para o próximo.
-		// Chegou ao fim (INÍCIO da lista encadeada).
-		atual->prox = novoNode; // O que era o último elemento agora aponta para o novo inserido no início.
+		while(atual->prox != NULL) // Enquanto nÃ£o chegou ao fim..
+			atual = atual->prox; // Procede para o prÃ³ximo.
+		// Chegou ao fim (INÃCIO da lista encadeada).
+		atual->prox = novoNode; // O que era o Ãºltimo elemento agora aponta para o novo inserido no inÃ­cio.
 		return topo;
 	}
 }
@@ -53,7 +53,7 @@ Node *inserirInicio(Node *topo, int novoValor){
 void exibirLista(Node *topo){
 	Node *atual;
 	atual = topo;
-	int i = 0; // Somente para demonstrar o número do nó na exibição.
+	int i = 0; // Somente para demonstrar o nÃºmero do nÃ³ na exibiÃ§Ã£o.
 	
 	while(atual != NULL){
 		printf("Node %d: %d\n", i, atual->valor);
