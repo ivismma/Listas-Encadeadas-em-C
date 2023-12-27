@@ -5,4 +5,4 @@ Os códigos são implementações de métodos/funções de manipulação de List
 Algumas aulas específicas e material didático (pdf) não serão colocados em respeito ao autor do curso.
 Curso da Udemy: https://www.udemy.com/course/linked-lists-with-c/
 
-Aulas inseridas: 6/10
+Aulas inseridas: 8/10
