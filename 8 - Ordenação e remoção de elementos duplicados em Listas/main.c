@@ -24,7 +24,7 @@ bool ordenarLista(Node *topo){
 	bool trocou;
 	
 	do{
-		trocou = false; // Presuma que est· ordenado
+		trocou = false; // Presuma que est√° ordenado
 		Node *atual = topo;
 		Node *anterior = NULL;
 		
@@ -52,27 +52,27 @@ void removerDuplicados(Node *topo){
 	
 	Node *atual1, *atual2, *duplicado;
 	atual1 = topo;   
-	// atual1: NÛ exterior   <-- como se fosse i | nÛ exterior È como se fosse j
-	// atual2: NÛ interior (percorre toda lista buscando por n˙meros que correspondem a atual1 p/ remover duplicados).
+	// atual1: N√≥ exterior   <-- como se fosse i | N√≥ interior --> como se fosse j
+	// atual2: N√≥ interior (percorre toda lista buscando por n√∫meros que correspondem a atual1 p/ remover duplicados).
 	while(atual1 != NULL && atual1->prox != NULL){
-		atual2 = atual1;                            // <- Incrementa nÛ EXTERIOR para o prÛximo da vez
-		while(atual2->prox != NULL){                // <- Loop para comparar nÛ atual com todo o resto da lista
+		atual2 = atual1;                            // <- Incrementa n√≥ EXTERIOR para o pr√≥ximo da vez
+		while(atual2->prox != NULL){                // <- Loop para comparar n√≥ atual com todo o resto da lista
 			if(atual1->valor == atual2->prox->valor){
 				duplicado = atual2->prox;           // <- var auxiliar p/ armazenar o duplicado
-				atual2->prox = atual2->prox->prox;  // <- Pula para o prÛx do prÛx (prÛximo depois do duplicado)
-				free(duplicado);                    // <- Apaga nÛ duplicado
+				atual2->prox = atual2->prox->prox;  // <- Pula para o pr√≥x do pr√≥x (pr√≥ximo depois do duplicado)
+				free(duplicado);                    // <- Apaga n√≥ duplicado
  			}
-			else atual2 = atual2->prox;             // <-Incrementa nÛ INTERIOR p/ resto da lista
+			else atual2 = atual2->prox;             // <-Incrementa n√≥ INTERIOR p/ resto da lista
 		}
-		atual1 = atual1->prox; // Incrementa nÛ interior.
+		atual1 = atual1->prox; // Incrementa n√≥ interior.
 	}
 }
 
 // MAIN
 int main(){
-	Node *lista1 = NULL; // DeclaraÁ„o de lista vazia.
+	Node *lista1 = NULL; // Declara√ß√£o de lista vazia.
 
-	// ConcatenaaÁ„o de lista encadeada:
+	// Concatenaa√ß√£o de lista encadeada:
 	lista1 = inserirInicio(lista1, 1);
 	lista1 = inserirInicio(lista1, 3);
 	lista1 = inserirInicio(lista1, 5);
@@ -92,18 +92,18 @@ int main(){
 	return 0;
 }
 
-//////// FunÁıes j· estudadas ////////
+//////// Fun√ß√µes j√° estudadas ////////
 
 Node *inserirInicio(Node *topo, int novoValor){
-	Node *novoNode = calloc(1, sizeof(Node)); // Novo nÛ/elemento
+	Node *novoNode = calloc(1, sizeof(Node)); // Novo n√≥/elemento
 	novoNode->valor = novoValor;
-	if (topo == NULL) return novoNode; // Se lista vazia, o novo nÛ È o primeiro elemento.
+	if (topo == NULL) return novoNode; // Se lista vazia, o novo n√≥ √© o primeiro elemento.
 	else{
 		Node *atual = topo;
-		while(atual->prox != NULL) // Enquanto n„o chegou ao fim..
-			atual = atual->prox; // Procede para o prÛximo.
-		// Chegou ao fim (INÕCIO da lista encadeada).
-		atual->prox = novoNode; // O que era o ˙ltimo elemento agora aponta para o novo inserido no inÌcio.
+		while(atual->prox != NULL) // Enquanto n√£o chegou ao fim..
+			atual = atual->prox; // Procede para o pr√≥ximo.
+		// Chegou ao fim (IN√çCIO da lista encadeada).
+		atual->prox = novoNode; // O que era o √∫ltimo elemento agora aponta para o novo inserido no in√≠cio.
 		return topo;
 	}
 }
