@@ -64,7 +64,7 @@ void removerDuplicados(Node *topo){
  			}
 			else atual2 = atual2->prox;             // <-Incrementa nó INTERIOR p/ resto da lista
 		}
-		atual1 = atual1->prox; // Incrementa nó interior.
+		atual1 = atual1->prox; // Incrementa nó exterior.
 	}
 }
 
