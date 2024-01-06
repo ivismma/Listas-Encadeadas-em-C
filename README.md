@@ -6,4 +6,4 @@ Algumas aulas específicas e material didático (pdf) não serão colocados em r
 Curso da Udemy: https://www.udemy.com/course/linked-lists-with-c/<br><br>
 O que é uma Lista Ligada/Lista encadeada: https://pt.wikipedia.org/wiki/Lista_ligada
 
-Aulas inseridas: 8/10
+Aulas inseridas: 9/10
